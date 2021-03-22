@@ -48,15 +48,16 @@ func Crawl(url string, depth int) {
 				}
 			}
 		}
-		close(ch)
+
 	}
+	close(ch)
 }
 
 func main() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	fetched = make(map[string]bool)
 	now := time.Now()
-	Crawl("https://google.com", 2)
+	Crawl("http://andcloud.io", 2)
 	fmt.Println("time taken", time.Since(now))
 }
 
